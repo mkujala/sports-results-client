@@ -8,6 +8,9 @@ import text from 'texts/en';
 const theme = createMuiTheme({
   palette: {
     primary: blue
+  },
+  typography: {
+    useNextVariants: true
   }
 });
 
@@ -17,7 +20,7 @@ export default () => {
       <MuiThemeProvider theme={theme}>
         <AppBar position="static">
           <Toolbar>
-            <Typography variant="title" color="inherit">
+            <Typography variant="h6" color="inherit">
               {text['header.mainPage']}
             </Typography>
           </Toolbar>
