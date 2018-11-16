@@ -21,7 +21,7 @@ export default () => {
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h6" color="inherit">
-              {text['header.mainPage']}
+              {text.header['mainPage']}
             </Typography>
           </Toolbar>
         </AppBar>

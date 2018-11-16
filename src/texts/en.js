@@ -1,6 +1,14 @@
 export default {
-  'header.mainPage': 'Sport Stats Browser',
-  'header.mainTable': 'Standings table',
-  'nav.home': 'Home',
-  'nav.addNew': 'Add data'
+  header: {
+    mainPage: 'Sport Stats Browser',
+    mainTable: 'Standings table'
+  },
+  tableCols: {
+    team: 'Team',
+    season: 'Season',
+    league: 'Legue',
+    venue: 'Venue',
+    pts: 'Points',
+    ptsAvg: 'Pts Avg'
+  }
 };
