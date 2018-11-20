@@ -30,8 +30,19 @@ export default props => {
           {props.data.map(n => {
             return (
               <TableRow key={n.team}>
-                <TableCell component="th" scope="row" cellContent={n.team} />
-                <TableCell cellContent={n.venue} />
+                <TableCell cellContent={n.team} />
+                <TableCell cellContent={n.gp} />
+                <TableCell cellContent={n.wins} />
+                <TableCell cellContent={n.loses} />
+                <TableCell cellContent={n.otWins} />
+                <TableCell cellContent={n.otLoses} />
+                <TableCell cellContent={n.strWin_p} />
+                <TableCell cellContent={n.win_p} />
+                <TableCell cellContent={n.ot_p} />
+                <TableCell cellContent={n.gf} />
+                <TableCell cellContent={n.ga} />
+                <TableCell cellContent={n.gfAvg} />
+                <TableCell cellContent={n.gaAvg} />
                 <TableCell cellContent={n.pts} />
                 <TableCell cellContent={n.ptsAvg} />
               </TableRow>
