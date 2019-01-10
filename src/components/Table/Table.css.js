@@ -2,7 +2,8 @@ export default {
   root: {
     width: '100%',
     marginTop: 60,
-    overflowX: 'auto'
+    overflowX: 'auto',
+    padding: 'none'
   },
   table: {
     minWidth: 700,

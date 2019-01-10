@@ -17,7 +17,11 @@ export default props => {
       <Typography variant="h6" color="inherit">
         {props.pageHeader}
       </Typography>
-      <Table style={componentStyles.table}>
+      <Table
+        style={componentStyles.table}
+        fixedHeader={false}
+        // style={{ width: 'auto', tableLayout: 'auto' }}
+      >
         <TableHead>
           <TableRow>
             {/* Create Table Head Row with col names */}
