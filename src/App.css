@@ -1,0 +1,21 @@
+.contentGrid {
+  width: 92%;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
+.paper {
+  margin-top: 60;
+  padding-top: 20;
+  padding-left: 40;
+  padding-right: 40;
+  padding-bottom: 60;
+}
+
+.divider {
+  margin-bottom: 20;
+}
+
+.smText {
+  font-size: 80%;
+}

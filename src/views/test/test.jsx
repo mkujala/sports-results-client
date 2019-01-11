@@ -5,14 +5,31 @@ import { Grid } from '@material-ui/core';
 import ReactTable from 'react-table';
 import withFixedColumns from 'react-table-hoc-fixed-columns';
 import 'react-table/react-table.css';
+import './test.css';
 const ReactTableFixedColumns = withFixedColumns(ReactTable);
 
 // @inject('standingsStore')
 // @observer
 
 let data = [
-  { firstName: 'james', lastName: 'bond', gender: 'male', age: 47 },
-  { firstName: 'rocky', lastName: 'balboa', gender: 'male', age: 38 }
+  {
+    firstName: 'james',
+    lastName: 'bond',
+    gp: 82,
+    goals: 47,
+    assists: 28,
+    points: 75,
+    pim: 100
+  },
+  {
+    firstName: 'rocky',
+    lastName: 'balboa',
+    gp: 82,
+    goals: 7,
+    assists: 8,
+    points: 15,
+    pim: 448
+  }
 ];
 
 class TestView extends Component {
@@ -25,27 +42,43 @@ class TestView extends Component {
             {
               Header: 'First Name',
               accessor: 'firstName',
-              fixed: 'left'
+              fixed: 'left',
+              headerClassName: 'left'
             },
             {
               Header: 'Last Name',
-              accessor: 'lastName'
+              accessor: 'lastName',
+              headerClassName: 'left'
             },
             {
-              Header: 'Gender',
-              accessor: 'gender'
+              Header: 'GP',
+              accessor: 'gp',
+              className: 'center',
+              headerClassName: 'center'
             },
             {
-              Header: 'Last Name',
-              accessor: 'lastName'
+              Header: 'G',
+              accessor: 'goals',
+              headerClassName: 'center',
+              className: 'center'
             },
             {
-              Header: 'Gender',
-              accessor: 'gender'
+              Header: 'A',
+              accessor: 'assists',
+              headerClassName: 'center',
+              className: 'center'
             },
             {
-              Header: 'age',
-              accessor: 'age'
+              Header: 'PTS',
+              accessor: 'points',
+              headerClassName: 'center',
+              className: 'center'
+            },
+            {
+              Header: 'PIM',
+              accessor: 'pim',
+              headerClassName: 'center',
+              className: 'center'
             }
           ]}
           style={{ height: 300 }}
