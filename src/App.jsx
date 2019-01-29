@@ -17,7 +17,7 @@ export default class App extends Component {
           <div>
             <Header />
             <Grid container spacing={8} style={styles.contentGrid}>
-              <Route exact path="/" component={ViewStandings} />
+              <Route exact path="/" component={TestView} />
               <Route exact path="/test" component={TestView} />
               <Route
                 exact

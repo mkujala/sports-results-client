@@ -1,0 +1,9 @@
+.center {
+  text-align: center;
+  min-width: 40px;
+  max-width: 60px;
+}
+
+.left {
+  text-align: left;
+}
