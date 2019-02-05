@@ -7,6 +7,7 @@ import withFixedColumns from 'react-table-hoc-fixed-columns';
 import 'react-table/react-table.css';
 import './ViewStandings.css';
 import text from 'texts/en';
+import TableCols from './TableCols/TableCols';
 const ReactTableFixedColumns = withFixedColumns(ReactTable);
 
 @inject('standingsStore')
@@ -31,99 +32,17 @@ class ViewStandings extends Component {
                           - ${this.props.match.params.season.substring(4, 8)} 
                           ${conference} ${this.props.match.params.venue}`;
 
-      const tableCols = [
-        {
-          Header: text.tableCols['team'],
-          accessor: 'team',
-          fixed: 'left',
-          className: 'left',
-          headerClassName: 'left'
-        },
-        {
-          Header: text.tableCols['gp'],
-          accessor: 'gp',
-          className: 'center',
-          headerClassName: 'center'
-        },
-        {
-          Header: text.tableCols['wins'],
-          accessor: 'wins',
-          className: 'center',
-          headerClassName: 'center'
-        },
-        {
-          Header: text.tableCols['loses'],
-          accessor: 'loses',
-          className: 'center',
-          headerClassName: 'center'
-        },
-        {
-          Header: text.tableCols['otWins'],
-          accessor: 'otWins',
-          className: 'center',
-          headerClassName: 'center'
-        },
-        {
-          Header: text.tableCols['otLoses'],
-          accessor: 'otLoses',
-          className: 'center',
-          headerClassName: 'center'
-        },
-        {
-          Header: text.tableCols['strWin_p'],
-          accessor: 'strWin_p',
-          className: 'center',
-          headerClassName: 'center'
-        },
-        {
-          Header: text.tableCols['win_p'],
-          accessor: 'win_p',
-          className: 'center',
-          headerClassName: 'center'
-        },
-        {
-          Header: text.tableCols['ot_p'],
-          accessor: 'ot_p',
-          className: 'center',
-          headerClassName: 'center'
-        },
-        {
-          Header: text.tableCols['gf'],
-          accessor: 'gf',
-          className: 'center',
-          headerClassName: 'center'
-        },
-        {
-          Header: text.tableCols['ga'],
-          accessor: 'ga',
-          className: 'center',
-          headerClassName: 'center'
-        },
-        {
-          Header: text.tableCols['gfAvg'],
-          accessor: 'gfAvg',
-          className: 'center',
-          headerClassName: 'center'
-        },
-        {
-          Header: text.tableCols['gaAvg'],
-          accessor: 'gaAvg',
-          className: 'center',
-          headerClassName: 'center'
-        },
-        {
-          Header: text.tableCols['pts'],
-          accessor: 'pts',
-          className: 'center',
-          headerClassName: 'center'
-        },
-        {
-          Header: text.tableCols['ptsAvg'],
-          accessor: 'ptsAvg',
-          className: 'center',
-          headerClassName: 'center'
-        }
-      ];
+      let tableCols;
+      switch (this.props.match.params.league) {
+        case 'nhl':
+          tableCols = TableCols.NhlTableCols;
+          break;
+        case 'koris':
+          tableCols = TableCols.KorisliigaTableCols;
+          break;
+        default:
+          break;
+      }
 
       return (
         <Fragment>
@@ -133,8 +52,9 @@ class ViewStandings extends Component {
           <ReactTableFixedColumns
             data={data}
             columns={tableCols}
-            style={{ height: 500 }}
+            style={{ height: '100%' }}
             showPagination={false}
+            minRows={0}
           />
         </Fragment>
       );

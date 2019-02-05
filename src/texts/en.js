@@ -19,9 +19,10 @@ export default {
     ot_p: 'OT%',
     gf: 'GF',
     ga: 'GA',
-    gfAvg: 'GF avg.',
-    gaAvg: 'GA avg.',
+    gfAvg: 'GF avg',
+    gaAvg: 'GA avg',
     pts: 'PTS',
-    ptsAvg: 'PTS Avg'
+    ptsAvg: 'PTS avg',
+    pythagoreanWins: 'Py.W'
   }
 };
