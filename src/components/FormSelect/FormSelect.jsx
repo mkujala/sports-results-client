@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 export default ({ name, items, value, onchange }) => {
@@ -14,20 +13,18 @@ export default ({ name, items, value, onchange }) => {
   });
 
   return (
-    <form autoComplete="off">
-      <FormControl className={'test'}>
-        <InputLabel htmlFor={name}>{name}</InputLabel>
-        <Select
-          value={value}
-          onChange={onchange}
-          inputProps={{
-            name: name,
-            id: name
-          }}
-        >
-          {listItems}
-        </Select>
-      </FormControl>
-    </form>
+    <Fragment>
+      <InputLabel htmlFor={name}>{name}</InputLabel>
+      <Select
+        value={value}
+        onChange={onchange}
+        inputProps={{
+          name: name,
+          id: name
+        }}
+      >
+        {listItems}
+      </Select>
+    </Fragment>
   );
 };

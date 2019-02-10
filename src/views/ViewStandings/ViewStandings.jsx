@@ -9,6 +9,7 @@ import './ViewStandings.css';
 import text from 'texts/en';
 import TableCols from './TableCols/TableCols';
 import FormSelect from 'components/FormSelect/FormSelect';
+import FormControl from '@material-ui/core/FormControl';
 const ReactTableFixedColumns = withFixedColumns(ReactTable);
 
 @inject('standingsStore')
@@ -62,12 +63,20 @@ class ViewStandings extends Component {
           <Typography variant="h6" color="inherit">
             {pageHeader}
           </Typography>
-          <FormSelect
-            name="League"
-            items={['nhl', 'koris']}
-            value={this.props.standingsStore.selectStates.league}
-            onchange={this.updateSelect.bind(this)}
-          />
+          <FormControl className="formControl">
+            <FormSelect
+              name="League"
+              items={['nhl', 'koris']}
+              value={this.props.standingsStore.selectStates.league}
+              onchange={this.updateSelect.bind(this)}
+            />
+            <FormSelect
+              name="Season"
+              items={[20182019, 20172018, 20162017]}
+              value={this.props.standingsStore.selectStates.season}
+              onchange={this.updateSelect.bind(this)}
+            />
+          </FormControl>
           <ReactTableFixedColumns
             data={data}
             columns={tableCols}

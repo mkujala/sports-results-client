@@ -5,3 +5,8 @@
 .left {
   text-align: left;
 }
+
+.formControl {
+  flex-wrap: wrap;
+  flex-direction: row !important;
+}
