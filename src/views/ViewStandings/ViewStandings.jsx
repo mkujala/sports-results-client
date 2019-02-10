@@ -46,9 +46,6 @@ class ViewStandings extends Component {
                           - ${this.props.match.params.season.substring(4, 8)} 
                           ${conference} ${this.props.match.params.venue}`;
 
-      if (this.props.standingsStore.selectValues) {
-      }
-
       let tableCols;
       switch (this.props.match.params.league) {
         case 'nhl':
