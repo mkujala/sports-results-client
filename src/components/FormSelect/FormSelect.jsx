@@ -6,7 +6,11 @@ import Select from '@material-ui/core/Select';
 
 export default ({ name, items, onchange }) => {
   const listItems = items.map(item => {
-    return <MenuItem value={item}>{item}</MenuItem>;
+    return (
+      <MenuItem key={item} value={item}>
+        {item}
+      </MenuItem>
+    );
   });
 
   return (

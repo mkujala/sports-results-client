@@ -18,6 +18,9 @@ class ViewStandings extends Component {
     let { league, venue, season, conference } = this.props.match.params; // url parameters
     this.props.standingsStore.fetchStandings(league, venue, season, conference);
   }
+  updateSelect() {
+    console.log('updateSelect called!');
+  }
   renderData() {
     if (this.props.standingsStore.standingsState !== 'done') {
       return <CircularProgress />; // wait until the fetch is done and the store is updated
@@ -33,7 +36,10 @@ class ViewStandings extends Component {
                           - ${this.props.match.params.season.substring(4, 8)} 
                           ${conference} ${this.props.match.params.venue}`;
 
-      if (this.props.standingsStore.selectValues) {
+      if (true) {
+        // Implement -> get parameters from url
+        let values = { league: 'nhl', season: 20172018, conference: 'east', venue: 'all' };
+        this.props.standingsStore.selectValues = values;
       }
 
       let tableCols;
@@ -53,7 +59,7 @@ class ViewStandings extends Component {
           <Typography variant="h6" color="inherit">
             {pageHeader}
           </Typography>
-          <FormSelect name={'Leagues'} items={['nhl', 'koris']} onchange={''} />
+          <FormSelect name="Leagues" items={['nhl', 'koris']} onchange={this.updateSelect()} />
           <ReactTableFixedColumns
             data={data}
             columns={tableCols}
