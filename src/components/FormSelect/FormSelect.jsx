@@ -21,8 +21,8 @@ export default ({ name, items, onchange }) => {
           value={''}
           onChange={onchange}
           inputProps={{
-            name: { name },
-            id: { name }
+            name: name,
+            id: name
           }}
         >
           {listItems}
