@@ -4,7 +4,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-export default ({ name, items, onchange }) => {
+export default ({ name, items, value, onchange }) => {
   const listItems = items.map(item => {
     return (
       <MenuItem key={item} value={item}>
@@ -18,7 +18,7 @@ export default ({ name, items, onchange }) => {
       <FormControl className={'test'}>
         <InputLabel htmlFor={name}>{name}</InputLabel>
         <Select
-          value={''}
+          value={value}
           onChange={onchange}
           inputProps={{
             name: name,

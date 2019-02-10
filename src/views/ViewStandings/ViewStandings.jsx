@@ -18,13 +18,22 @@ class ViewStandings extends Component {
     let { league, venue, season, conference } = this.props.match.params; // url parameters
     this.props.standingsStore.fetchStandings(league, venue, season, conference);
   }
-  updateSelect() {
-    console.log('updateSelect called!');
+  updateSelect(event) {
+    // console.log('updateSelect called with value:', event.target);
+    this.props.standingsStore.updateSelectState(
+      event.target.name.toLowerCase(),
+      event.target.value
+    );
   }
   renderData() {
     if (this.props.standingsStore.standingsState !== 'done') {
       return <CircularProgress />; // wait until the fetch is done and the store is updated
     } else {
+      if (!this.props.standingsStore.selectStates.league) {
+        // Implement -> get parameters from url
+        let values = { league: 'nhl', season: 20172018, conference: 'east', venue: 'all' };
+        this.props.standingsStore.selectStates = values;
+      }
       const data = this.props.standingsStore.standings;
       let conference = '';
       if (this.props.match.params.conference) {
@@ -35,12 +44,6 @@ class ViewStandings extends Component {
                           ${this.props.match.params.season.substring(0, 4)} 
                           - ${this.props.match.params.season.substring(4, 8)} 
                           ${conference} ${this.props.match.params.venue}`;
-
-      if (true) {
-        // Implement -> get parameters from url
-        let values = { league: 'nhl', season: 20172018, conference: 'east', venue: 'all' };
-        this.props.standingsStore.selectValues = values;
-      }
 
       let tableCols;
       switch (this.props.match.params.league) {
@@ -59,7 +62,12 @@ class ViewStandings extends Component {
           <Typography variant="h6" color="inherit">
             {pageHeader}
           </Typography>
-          <FormSelect name="Leagues" items={['nhl', 'koris']} onchange={this.updateSelect()} />
+          <FormSelect
+            name="League"
+            items={['nhl', 'koris']}
+            value={this.props.standingsStore.selectStates.league}
+            onchange={this.updateSelect.bind(this)}
+          />
           <ReactTableFixedColumns
             data={data}
             columns={tableCols}
