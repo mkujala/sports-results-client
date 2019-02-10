@@ -4,6 +4,7 @@ import axios from 'axios';
 export default class StandingsStore {
   @observable standings = [];
   @observable standingsState = 'pending'; // 'pending' / 'done' / 'error'
+  @observable selectValues = [];
 
   // Fetch standings by league, venue, season, conference
   @action
@@ -35,4 +36,7 @@ export default class StandingsStore {
   fetchStandingsError(error) {
     this.standingsState = 'error';
   }
+
+  @action
+  updateSelect() {}
 }

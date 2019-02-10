@@ -8,6 +8,7 @@ import 'react-table/react-table.css';
 import './ViewStandings.css';
 import text from 'texts/en';
 import TableCols from './TableCols/TableCols';
+import FormSelect from 'components/FormSelect/FormSelect';
 const ReactTableFixedColumns = withFixedColumns(ReactTable);
 
 @inject('standingsStore')
@@ -32,6 +33,9 @@ class ViewStandings extends Component {
                           - ${this.props.match.params.season.substring(4, 8)} 
                           ${conference} ${this.props.match.params.venue}`;
 
+      if (this.props.standingsStore.selectValues) {
+      }
+
       let tableCols;
       switch (this.props.match.params.league) {
         case 'nhl':
@@ -49,6 +53,7 @@ class ViewStandings extends Component {
           <Typography variant="h6" color="inherit">
             {pageHeader}
           </Typography>
+          <FormSelect name={'Leagues'} items={['nhl', 'koris']} onchange={''} />
           <ReactTableFixedColumns
             data={data}
             columns={tableCols}
